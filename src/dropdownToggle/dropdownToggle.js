@@ -65,6 +65,11 @@ angular.module('mm.foundation.dropdownToggle', [ 'mm.foundation.position', 'mm.f
                 left = rightThreshold;
                 dropdown.removeClass('left').addClass('right');
             }
+            var top = offset.top - parentOffset.top + element.height();
+            var bottomThreshold = $window.innerHeight - dropdown.height() - 8;
+            if (top > bottomThreshold) {
+              css.top = bottomThreshold - element.height() + 'px';
+            }
             css.left = left + 'px';
             css.position = null;
             css['max-width'] = null;
